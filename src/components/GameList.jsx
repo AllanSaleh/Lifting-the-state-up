@@ -20,14 +20,14 @@ const GameList = (props) => {
     }
 
     const handleToggle = idx => {
-    const newGames = props.games.map((gameObj, GameIdx) => {
-        if(idx === GameIdx){
-            return { ...gameObj, isPlayed: !gameObj.isPlayed };
-        }
-        return gameObj;
-    });
-    props.setGames(newGames);
-}
+        const newGames = props.games.map((gameObj, GameIdx) => {
+            if (idx === GameIdx) {
+                return { ...gameObj, isPlayed: !gameObj.isPlayed };
+            }
+            return gameObj;
+        });
+        props.setGames(newGames);
+    }
 
     return (
         <>
@@ -43,7 +43,7 @@ const GameList = (props) => {
             <ul>
                 {
                     props.games.map((game, idx) => (
-                        <div key={idx} style={{backgroundColor: game.isPlayed ? "green" : "transparent"}}>
+                        <div key={idx} style={{ backgroundColor: game.isPlayed ? "green" : "transparent" }}>
                             <li >{game.title}</li>
                             <button onClick={() => handleToggle(idx)} >{game.isPlayed ? "Played" : "Uncheck"}</button>
                             <button onClick={() => handleRemove(game.title)} >Remove</button>
